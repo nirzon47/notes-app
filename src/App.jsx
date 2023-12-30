@@ -1,3 +1,5 @@
+// TODO: Add delete button
+
 import Split from 'react-split'
 import { useState } from 'react'
 
@@ -28,7 +30,6 @@ const App = () => {
 		newNotes[index].note = updatedNote
 
 		setNotes(newNotes)
-		console.log(notes)
 		localStorage.setItem('notes', JSON.stringify(newNotes))
 	}
 
