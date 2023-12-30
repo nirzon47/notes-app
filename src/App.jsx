@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Sidebar from './Sidebar/Sidebar'
 
 import './react-split.css'
+import Editor from './Editor/Editor'
 
 const App = () => {
 	const [notes, setNotes] = useState(
@@ -28,7 +29,9 @@ const App = () => {
 			<div>
 				<Sidebar addNote={addNote} notes={notes} />
 			</div>
-			<div></div>
+			<div>
+				<Editor note={notes[0]} />
+			</div>
 		</Split>
 	)
 }

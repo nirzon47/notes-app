@@ -3,7 +3,7 @@ import NewNoteModal from './NewNoteModal'
 
 const Header = ({ addNote }) => {
 	return (
-		<header className='flex items-center justify-between border-b-2 bg-accent'>
+		<header className='flex items-center justify-between border-b-2 bg-accent h-[8vh]'>
 			<h1 className='p-4 text-3xl font-bold font-neon text-zinc-900'>
 				Notes
 			</h1>
