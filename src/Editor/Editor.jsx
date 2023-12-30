@@ -19,7 +19,7 @@ const Editor = ({ note, updateNote }) => {
 			},
 			minHeight: '83vh',
 		}
-	}, [])
+	}, [note])
 
 	return (
 		<SimpleMDE
