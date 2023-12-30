@@ -42,7 +42,12 @@ const App = () => {
 			minSize={250}
 		>
 			<div>
-				<Sidebar addNote={addNote} notes={notes} setIndex={setIndex} />
+				<Sidebar
+					addNote={addNote}
+					notes={notes}
+					setIndex={setIndex}
+					setNotes={setNotes}
+				/>
 			</div>
 			<div>
 				<Editor

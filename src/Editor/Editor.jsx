@@ -22,11 +22,13 @@ const Editor = ({ note, updateNote }) => {
 	}, [note])
 
 	return (
-		<SimpleMDE
-			value={note.note}
-			onChange={handleChangeNote}
-			options={customRendererOptions}
-		/>
+		<div>
+			<SimpleMDE
+				value={note.note}
+				onChange={handleChangeNote}
+				options={customRendererOptions}
+			/>
+		</div>
 	)
 }
 
