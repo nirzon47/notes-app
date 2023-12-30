@@ -31,7 +31,6 @@ const App = () => {
 		console.log(notes)
 		localStorage.setItem('notes', JSON.stringify(newNotes))
 	}
-	// TODO: Handle < 0
 
 	return notes.length > 0 ? (
 		<Split
@@ -55,16 +54,18 @@ const App = () => {
 		</Split>
 	) : (
 		<>
+			<NewNoteModal addNote={addNote} />
 			<div className='flex flex-col items-center justify-center h-screen gap-6'>
 				<h1 className='text-3xl font-bold'>No Notes</h1>
 				<button
 					className='btn btn-accent'
-					onClick={document.getElementById('addNoteModal').showModal()}
+					onClick={() =>
+						document.getElementById('addNoteModal').showModal()
+					}
 				>
 					Add New Note
 				</button>
 			</div>
-			<NewNoteModal addNote={addNote} />
 		</>
 	)
 }
