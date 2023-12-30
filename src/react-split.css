@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .split {
 	display: flex;
 	flex-direction: row;
@@ -14,6 +10,7 @@
 }
 
 .gutter.gutter-horizontal {
-	background-color: #eee;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
 	cursor: col-resize;
+	opacity: 0.1;
 }
