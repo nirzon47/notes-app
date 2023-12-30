@@ -2,6 +2,7 @@ import Split from 'react-split'
 import { useState } from 'react'
 
 import Sidebar from './Sidebar/Sidebar'
+import NewNoteModal from './Sidebar/NewNoteModal'
 
 import './react-split.css'
 import Editor from './Editor/Editor'
@@ -11,14 +12,28 @@ const App = () => {
 		JSON.parse(localStorage.getItem('notes')) || []
 	)
 
+	const [index, setIndex] = useState(0)
+
 	const addNote = (note) => {
 		const newNotes = [...notes, note]
-		console.log(newNotes)
+
 		setNotes(newNotes)
 		localStorage.setItem('notes', JSON.stringify([...notes, note]))
 	}
 
-	return (
+	const updateNote = (id, updatedNote) => {
+		const newNotes = [...notes]
+		const index = notes.findIndex((note) => note.id === id)
+
+		newNotes[index].note = updatedNote
+
+		setNotes(newNotes)
+		console.log(notes)
+		localStorage.setItem('notes', JSON.stringify(newNotes))
+	}
+	// TODO: Handle < 0
+
+	return notes.length > 0 ? (
 		<Split
 			className='h-screen split'
 			sizes={[17, 83]}
@@ -27,12 +42,30 @@ const App = () => {
 			minSize={250}
 		>
 			<div>
-				<Sidebar addNote={addNote} notes={notes} />
+				<Sidebar addNote={addNote} notes={notes} setIndex={setIndex} />
 			</div>
 			<div>
-				<Editor note={notes[0]} />
+				<Editor
+					notes={notes}
+					note={notes[index]}
+					index={index}
+					updateNote={updateNote}
+				/>
 			</div>
 		</Split>
+	) : (
+		<>
+			<div className='flex flex-col items-center justify-center h-screen gap-6'>
+				<h1 className='text-3xl font-bold'>No Notes</h1>
+				<button
+					className='btn btn-accent'
+					onClick={document.getElementById('addNoteModal').showModal()}
+				>
+					Add New Note
+				</button>
+			</div>
+			<NewNoteModal addNote={addNote} />
+		</>
 	)
 }
 

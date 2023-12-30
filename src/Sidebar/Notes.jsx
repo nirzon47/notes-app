@@ -1,12 +1,14 @@
 import Note from './Note'
 
-const Notes = ({ notes }) => {
+const Notes = ({ notes, setIndex }) => {
 	return notes.map((note) => (
 		<Note
+			notes={notes}
 			key={note.id}
-			note={note.note}
+			setIndex={setIndex}
 			color={note.color}
 			title={note.title}
+			id={note.id}
 		/>
 	))
 }
