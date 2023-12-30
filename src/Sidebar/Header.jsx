@@ -1,16 +1,23 @@
 import { FaPlus } from 'react-icons/fa6'
+import NewNoteModal from './NewNoteModal'
 
-const Header = () => {
+const Header = ({ addNote }) => {
 	return (
-		<header className='flex justify-between items-center bg-accent border-b-2'>
-			<h1 className='text-3xl font-bold font-neon p-4 text-zinc-900'>
+		<header className='flex items-center justify-between border-b-2 bg-accent'>
+			<h1 className='p-4 text-3xl font-bold font-neon text-zinc-900'>
 				Notes
 			</h1>
 			<div className='p-4'>
-				<button className='btn btn-circle bg-black btn-sm'>
+				<button
+					className='bg-black btn btn-circle btn-sm'
+					onClick={() => {
+						document.getElementById('addNoteModal').showModal()
+					}}
+				>
 					<FaPlus />
 				</button>
 			</div>
+			<NewNoteModal addNote={addNote} />
 		</header>
 	)
 }
